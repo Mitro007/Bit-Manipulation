@@ -1,7 +1,8 @@
 package basics;
 
 /*
- * Write a modified strcmp function which ignores cases and returns -1 if s1 < s2, 0 if s1 = s2, else returns 1.
+ * Write a modified strcmp function which ignores cases and returns -1 if s1 < s2,
+ * 0 if s1 = s2, else returns 1.
 */
 
 public class StringComparisonIgnoringCase {
@@ -12,11 +13,13 @@ public class StringComparisonIgnoringCase {
 		int min = Math.min(len1, len2);
 		
 		for(int i=0;i<min;i++) {
-			char ch1 = s1.charAt(i);
+			char ch1 = s1.charAt(i); 
 			char ch2 = s2.charAt(i);
-			if(ch1 == ch2 || ch1 == (ch2 | 32 ) || (ch1 | 32 ) == ch2)
+			//if(ch1 == ch2 || ch1 == (ch2 | 32 ) || (ch1 | 32 ) == ch2)
+			if(ch1 == ch2 || (ch1 ^ ch2) == 32)
 				continue;
 			else {
+				// suppose ch1 is lower case & ch2 is upper case letter
 				if(ch1 > (ch2 | 32))
 					return ch1 - (ch2 | 32);
 				else

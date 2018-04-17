@@ -19,10 +19,15 @@ public class OnesComplement {
 		return n;
 	}
 	
+	public static int oneComplement1(int n) {
+		return n ^ SetAllBits.setAllBits(n);
+	}
+	
 	public static void main(String[] args) {
 		Random gen = new Random();
 		int input = gen.nextInt(50);
 		System.out.println(Integer.toBinaryString(input));
 		System.out.println(Integer.toBinaryString(oneComplement(input)));
+		System.out.println(Integer.toBinaryString(oneComplement1(input)));
 	}
 }
